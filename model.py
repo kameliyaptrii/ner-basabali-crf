@@ -7,8 +7,6 @@ import joblib
 model = joblib.load('nercrf_model.pkl')
 
 # Fungsi untuk ekstraksi fitur dari setiap kata dalam kalimat
-
-
 def word2features(sent, i):
     word = sent[i]
     features = {
@@ -64,11 +62,9 @@ def rule_based_tagging(words, model_prediction):
 
 
 def predict_text(input_text):
-    # Hapus tanda baca dari kalimat
-    input_text = re.sub(r'[.,!?;]', '', input_text)
-
+    
     # Pisahkan kalimat menjadi kata-kata
-    words = input_text.split()
+    words = re.findall(r'\w+|[.,!?;]', input_text)
 
     # Ekstraksi fitur dari input
     features = sent2features(words)
@@ -92,8 +88,6 @@ def predict_text(input_text):
     return result
 
 # Fungsi untuk mewarnai tag NER
-
-
 def style_tag(word, tag):
     colors = {
         'B-PER': '#FF6666',
@@ -106,7 +100,7 @@ def style_tag(word, tag):
         'I-GODS': '#6666FF',
         'B-OBJ': '#CC66FF',
         'I-OBJ': '#CC66FF',
-        'O': '#D2B48C'
+        'O': '#000000'
     }
     color = colors.get(tag, '#FFFFFF')
-    return f'<span style="background-color: {color}; padding: 2px 4px; border-radius: 3px; margin-right: 4px;">{word} | {tag}</span>'
+    return f'<span style="background-color: {color}; padding: 2px 4px; border-radius: 3px; margin-right: 4px;">{word} | {tag}</span>' if tag != 'O' else f"{word} "
