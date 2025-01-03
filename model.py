@@ -109,4 +109,4 @@ def style_tag(word, tag):
         'O': '#D2B48C'
     }
     color = colors.get(tag, '#FFFFFF')
-    return f'<span style="background-color: {color}; padding: 2px 4px; border-radius: 3px; margin-right: 4px;">{word} ({tag})</span>'
+    return f'<span style="background-color: {color}; padding: 2px 4px; border-radius: 3px; margin-right: 4px;">{word} | {tag}</span>'
