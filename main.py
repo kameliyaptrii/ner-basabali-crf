@@ -1,4 +1,4 @@
-
+# main.py
 import streamlit as st
 from model import predict_text, style_tag
 
