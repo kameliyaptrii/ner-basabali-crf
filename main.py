@@ -4,7 +4,7 @@ from model import predict_text, style_tag
 
 
 def main():
-    st.title(":green[NER BASA Bali]")
+    st.title(":green[NER BASA BALI]")
     st.write("""
         **Named Entity Recognition (NER)** adalah sebuah teknik dalam pemrosesan bahasa alami (Natural Language Processing) 
         yang digunakan untuk mengekstraksi entitas tertentu dari sebuah teks. Model ini mendeteksi entitas seperti :blue[**nama orang, dewa, dan hewan**] dalam teks berbahasa Bali.
